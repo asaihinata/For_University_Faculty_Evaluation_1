@@ -1,0 +1,140 @@
+from _import import *
+
+if __name__ == "__main__":
+
+    def updates():
+        radomdata = rng.integers(0, 3, 5)
+        print(f"{radomdata=}")
+        error: Errorbar = win.get("errorbar")
+        error.update(y=radomdata)
+
+    print(f"{errorbarx=}")
+    print(f"{errorbary=}")
+    print(f"{err=}")
+    print(f"{xerr=}")
+    print(f"{yerr=}")
+    layout = [
+        [
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="エラーバーの基本1",
+                xlabel=xlabel,
+                ylabel=ylabel,
+            ),
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                xerr=xerr,
+                yerr=yerr,
+                title="エラーバーの基本2",
+                xlabel=xlabel,
+                ylabel=ylabel,
+            ),
+        ],
+        [
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="xの上向きの誤差に矢印を付ける",
+                xuplims=True,
+            ),
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="xの下向きの誤差に矢印を付ける",
+                xlolims=True,
+            ),
+        ],
+        [
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="yの上向きの誤差に矢印を付ける",
+                yuplims=True,
+            ),
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="yの下向きの誤差に矢印を付ける",
+                ylolims=True,
+            ),
+        ],
+        [
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="データ点とデータ点を結ぶ線を指定する",
+                linestyle="dashdot",
+            ),
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="データの点の種類を変更する",
+                marker="s",
+            ),
+        ],
+        [
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="キャップの長さを指定する",
+                capsize=3,
+            ),
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="キャップの幅を指定する",
+                capthick=20,
+                capsize=3,
+            ),
+        ],
+        [
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="エラーバーを表示する頻度を変える",
+                errorevery=3,
+            ),
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="エラーバーを表示する頻度を指定する。",
+                errorevery=[2, 4],
+            ),
+        ],
+        [
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="エラーバーの線の幅を変更する",
+                linewidth=2,
+            )
+        ],
+        [
+            Guis.Errorbar(
+                x=errorbarx,
+                y=errorbary,
+                err=err,
+                title="グラフを更新する",
+                key="errorbar",
+            ),
+            Guis.Buttons(text="更新ボタン", function=updates),
+        ],
+    ]
+    win = Guis.window(
+        title="エラーバー(test)", layout=layout, scroll=True, maxmine=True
+    )
+    win.run()

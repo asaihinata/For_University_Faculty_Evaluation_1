@@ -1,0 +1,8 @@
+*.pyc
+.dll
+.DS_Store
+.env
+.exe
+.ini
+__pycache__
+my-project.code-workspace

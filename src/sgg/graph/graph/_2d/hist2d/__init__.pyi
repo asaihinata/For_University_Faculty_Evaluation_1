@@ -8,15 +8,15 @@ __all__ = []
 class Hist2d(_2Gset):
     def update(
         self,
-        x: o_array,
-        y: o_array,
+        x: TypeArrayLikeNumber,
+        y: TypeArrayLikeNumber,
         max: int | float,
         min: int | float,
         xmax: int | float,
         xmin: int | float,
         ymax: int | float,
         ymin: int | float,
-        bins: int | TupleInt2 | ArrayLike | tuple[ArrayLike, ArrayLike],
+        bins: int | tuple[int, int] | ArrayLike | tuple[ArrayLike, ArrayLike],
         density: bool,
         fg: ColorType,
         bg: ColorType,

@@ -8,8 +8,13 @@ __all__ = ["Stem"]
 class Stem(_2Gset):
     def update(
         self,
-        x: n_array,
-        y: n_array,
+        x: TypeArraysLikeNumber,
+        y: TypeArraysLikeNumber,
+        linefmt: str | None,
+        markerfmt: str | None,
+        basefmt: str | None,
+        bottom: int | float,
+        orientation: Literal["horizontal", "vertical"],
         fg: ColorType,
         bg: ColorType,
         alpha: int | float,
@@ -17,31 +22,12 @@ class Stem(_2Gset):
         ylabel: str,
         graph_grid: ColorType,
         title: str,
-        bottom: int | float,
-        orientation: Literal["horizontal", "vertical"],
-        marker: Literal[
-            "o",
-            "+",
-            "*",
-            ".",
-            "x",
-            "_",
-            "|",
-            "square",
-            "diamond",
-            "^",
-            "v",
-            "<",
-            ">",
-            "pentagram",
-            "hexagram",
-        ] = ...,
-        line: Literal["-", "--", "-.", "-."] = ...,
+        label: str | list[str] | None,
     ) -> None:
         """幹図を再表示させる"""
 
     def get(self) -> list[StemContainer]:
-        """`StemContainer`の配列を返す"""
+        """`matplotlib.container.StemContainer`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

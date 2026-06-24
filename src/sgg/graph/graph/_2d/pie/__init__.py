@@ -6,7 +6,7 @@ __all__ = ["Pie"]
 class Pie(twoElement):
     def __init__(self, master, kw):
         super().__init__(master, kw)
-        self.__data = NPNumber(kw.get("data"))
+        self.__data = NPNumber(kw.get("data"), depth_limit=1)
         self.startangle = nums(kw.get("startangle"), 0)
         self.startangletype = bols(kw.get("startangletype"))
         self.shadow = bols(kw.get("shadow"), False)
@@ -48,24 +48,25 @@ class Pie(twoElement):
         self.clear()
         if startangletype == False:
             startangle = np.rad2deg(startangle)
-        pie = self.ax.pie(
-            data,
-            labels=None if label else list(label),
-            startangle=90 - startangle,
-            shadow=shadow,
-            counterclock=counterclock,
-            labeldistance=labeldistance,
-            explode=explode,
-            wedgeprops={"alpha": alpha},
-        )
-        self.graphdata = [pie]
+        self.graphdata = [
+            self.ax.pie(
+                data,
+                labels=None if label else list(label),
+                startangle=90 - startangle,
+                shadow=shadow,
+                counterclock=counterclock,
+                labeldistance=labeldistance,
+                explode=explode,
+                wedgeprops={"alpha": alpha},
+            )
+        ]
         if not self.label:
-            self.ax.legend()
+            self.ax.legend(loc="upper left", bbox_to_anchor=(1, 1))
 
     def update(self, data=None, **kw):
         self._updates(**kw)
-        if isinstance(data, nListlike):
-            self.__data = NPNumber(data)
+        if change_array_like(data):
+            self.__data = NPNumber(data, depth_limit=1)
         explode = kw.get("explode", self.explode)
         if isinstance(explode, list | tuple) and all(
             isinstance(i, int | float) for i in explode
@@ -89,6 +90,7 @@ class Pie(twoElement):
             labeldistance=self.labeldistance,
             explode=self.explode,
             startangletype=self.startangletype,
+            alpha=self.alpha,
         )
         self._redraw()
 

@@ -1,25 +1,30 @@
-from .dtype import (boolDtype, bytesDtype, complexDtype, datetimeDtype, floatDtype,
-                    intDtype, integerDtype, numberDtype, strDtype, stringDtype,
-                    timedeltaDtype, uintDtype)
-from .npArray import NPArray
-from .npColor import NPColor
-from .npDate import Formatconversion, NPDate
-from .npNumber import NPNumber
-from .npStatistics import NPStatisticsd, NPStatisticsds
-from .npStr import NPString
+from .array import (Formatconversion, NPArray, NPColor, NPDate, NPNumber, NPStatisticsd,
+                    NPStatisticsds, NPString)
+from .isdtype import (booldDtype, boolDtype, complexdDtype, complexDtype, floatdDtype,
+                      floatDtype, intdDtype, intDtype, integerdDtype, integerDtype,
+                      numberdDtype, numberDtype, strdDtype, strDtype, uintdDtype,
+                      uintDtype)
+from .scalar import ScalarBool, ScalarNum, ScalarStr
 
 __all__ = [
+    "ScalarNum",
+    "ScalarBool",
+    "ScalarStr",
+    "booldDtype",
+    "complexdDtype",
+    "floatdDtype",
+    "intdDtype",
+    "integerdDtype",
+    "numberdDtype",
+    "strdDtype",
+    "uintdDtype",
     "boolDtype",
-    "bytesDtype",
     "complexDtype",
-    "datetimeDtype",
     "floatDtype",
     "intDtype",
     "integerDtype",
     "numberDtype",
     "strDtype",
-    "stringDtype",
-    "timedeltaDtype",
     "uintDtype",
     "NPArray",
     "NPColor",

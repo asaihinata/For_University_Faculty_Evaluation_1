@@ -1,4 +1,4 @@
-from ..btn import *
+from ..btn import Btn
 
 __all__ = ["Savebtn"]
 
@@ -8,7 +8,7 @@ class Savebtn(Btn):
         選択したファイルもしくはフォルダのパスを取得する
 
         :return: 選択したファイルもしくはフォルダのパスを返す
-        :rtype: str|None
+        :rtype: str | None
         """
 
     @property
@@ -17,7 +17,7 @@ class Savebtn(Btn):
         選択したファイルもしくはフォルダのパスを取得する
 
         :return: 選択したファイルもしくはフォルダのパスを返す
-        :rtype: str|None
+        :rtype: str | None
         """
 
     def get_path(self) -> str | None:
@@ -25,5 +25,5 @@ class Savebtn(Btn):
         選択したファイルもしくはフォルダのパスを取得する
 
         :return: 選択したファイルもしくはフォルダのパスを返す
-        :rtype: str|None
+        :rtype: str | None
         """

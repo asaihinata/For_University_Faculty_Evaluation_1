@@ -10,20 +10,19 @@ class Tree(Element):
 
     def __init__(self, master, kw):
         super().__init__(master, kw)
-        self.colwidth = kw.get("colwidth", 120)
+        self.colwidth = num0s(kw.get("colwidth"), 120)
         self.bg = parsecolor(kw.get("bg"), "#e0e0e0")
         self.header_fg = parsecolor(kw.get("header_fg"), "#000000")
         self.header_bg = parsecolor(kw.get("header_bg"), "#cccccc")
-        self.rowheight = kw.get("rowheight", 50)
-        if not isinstance(kw.get("values", []), list):
+        self.rowheight = num0s(kw.get("rowheight"), 50)
+        values = kw.get("values", [])
+        if not isinstance(values, list):
             raise TypeError("valuesにlist型を指定してください")
-        else:
-            self.values = kw.get("values", [])
-        if not isinstance(kw.get("header", []), list):
+        self.values = values
+        header = kw.get("header", [])
+        if not isinstance(header, list):
             raise TypeError("headerにlist型を指定してください")
-        else:
-            self.header = kw.get("header", [])
-        self.side_header = kw.get("side_header")
+        self.header = header
         self.maxcols = (
             1
             if self._calc_max_columns(self.values) < 1
@@ -38,7 +37,7 @@ class Tree(Element):
         if self.header != [] and len(self.header) < self.maxcols:
             for i in range(self.maxcols - len(self.header)):
                 self.header.append("")
-        self.widget.heading("#0", text=self.side_header)
+        self.widget.heading("#0", text=kw.get("side_header"))
         self.widget.column("#0", width=200, anchor="w")
         for i, c in enumerate(cols):
             self.widget.heading(c, text="" if self.header == [] else self.header[i])

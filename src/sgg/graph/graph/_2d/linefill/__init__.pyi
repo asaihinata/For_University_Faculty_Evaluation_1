@@ -9,9 +9,9 @@ __all__ = ["Linefill"]
 class Linefill(_2Gset):
     def update(
         self,
-        x: o_array,
-        ymin: n_array,
-        ymax: n_array,
+        x: TypeArrayLikeNumber,
+        ymin: TypeArrayLikeNumber,
+        ymax: TypeArrayLikeNumber,
         centerlinewidth: int | float,
         xlabel: str,
         ylabel: str,
@@ -24,7 +24,7 @@ class Linefill(_2Gset):
         """2つの水平曲線の間の領域を埋めるグラフを再表示させる"""
 
     def get(self) -> list[FillBetweenPolyCollection, Line2D]:
-        """`PathCollection`と`Line2D`の配列を返す"""
+        """`matplotlib.collections.PathCollection`と`matplotlib.lines.Line2D`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

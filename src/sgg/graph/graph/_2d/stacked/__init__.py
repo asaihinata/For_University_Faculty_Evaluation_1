@@ -28,7 +28,7 @@ class Stacked(twoElement):
     def _survey(self, data, dataname, label=None, width=0.8):
         data = data.T
         lisarr = []
-        data_percent = data / np.sum(data, axis=0) * 100
+        data_percent = data / data.sum(0) * 100
         bottom = np.zeros(len(dataname))
         for i, ds in enumerate(data_percent):
             lisarr = self.ax.bar(
@@ -39,9 +39,9 @@ class Stacked(twoElement):
 
     def update(self, data=None, dataname=None, **kw):
         self._updates(**kw)
-        if isinstance(data, nListlike):
+        if change_array_like(data):
             self.__data = NPNumber(data)
-        if isinstance(dataname, nListlike):
+        if change_array_like(dataname):
             self.dataname = NPArray(dataname, depth_limit=1)
         if self.__data.shape[0] != self.dataname.shape[0]:
             raise ValueError("配列のエラー")

@@ -9,8 +9,8 @@ class Stempolar(_polarset):
     @overload
     def update(
         self,
-        x: o_array,
-        y: o_array,
+        x: TypeArrayLikeNumber,
+        y: TypeArrayLikeNS,
         linefmt: str | None,
         markerfmt: str | None,
         basefmt: str | None,
@@ -26,7 +26,7 @@ class Stempolar(_polarset):
     @overload
     def update(
         self,
-        data: o_array,
+        data: TypeArrayLikeNS,
         linefmt: str | None,
         markerfmt: str | None,
         basefmt: str | None,
@@ -40,7 +40,7 @@ class Stempolar(_polarset):
         """極軸幹図を再表示させる"""
 
     def get(self) -> list[StemContainer]:
-        """`StemContainer`の配列を返す"""
+        """`matplotlib.container.StemContainer`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

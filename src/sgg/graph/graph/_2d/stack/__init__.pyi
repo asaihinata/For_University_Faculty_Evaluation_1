@@ -8,8 +8,8 @@ __all__ = ["Stack"]
 class Stack(_2Gset):
     def update(
         self,
-        x: n_array,
-        y: n_array,
+        x: TypeArrayLikeNS,
+        y: TypeArraysLikeNumber,
         hatch: str,
         baseline: Literal["zero", "sym", "wiggle", "weighted_wiggle"],
         fg: ColorType,
@@ -19,11 +19,12 @@ class Stack(_2Gset):
         ylabel: str,
         graph_grid: ColorType,
         title: str,
+        label: str | list[str] | None,
     ) -> None:
         """積み上げエリアチャートを再表示させる"""
 
     def get(self) -> list[FillBetweenPolyCollection]:
-        """`FillBetweenPolyCollection`の配列を返す"""
+        """`matplotlib.collections.FillBetweenPolyCollection`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

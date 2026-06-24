@@ -39,10 +39,12 @@ class Barcode(Element):
     def __init__(self, master, kw):
         super().__init__(master, kw)
         self.master = master
-        self.data = kw.get("data", "")
+        self.data = kw.get("data")
+        if not isinstance(self.data, int | str):
+            raise TypeError(f"{self.data}にはstr型もしくはint型を指定してください")
         self.format = kw.get("format", "code39")
         self.barcode = barcode_data(self.data, self.format)
-        self.__img = Img_byte(self.barcode.bytedata).imgs
+        self.__img = Img_byte(self.barcode.bytedata).image
         self.imgs = PhotoImage(image=self.__img)
         self.widget = Label(
             master, text=None, image=self.imgs, takefocus=self.takefocus

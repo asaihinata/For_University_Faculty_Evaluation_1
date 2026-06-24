@@ -8,8 +8,8 @@ __all__ = ["Stackedh"]
 class Stackedh(_2Gset):
     def update(
         self,
-        data: n_array,
-        dataname: o_array,
+        data: TypeArraysLikeNumber,
+        dataname: TypeArrayLikeNS,
         height: int | float,
         fg: ColorType,
         bg: ColorType,
@@ -18,11 +18,12 @@ class Stackedh(_2Gset):
         ylabel: str,
         graph_grid: ColorType,
         title: str,
+        label: str | list[str] | None,
     ) -> None:
-        """積み上げ横棒グラフを再表示させる"""
+        """積み上げ横向き棒グラフを再表示させる"""
 
     def get(self) -> list[BarContainer]:
-        """`BarContainer`の配列を返す"""
+        """`matplotlib.container.BarContainer`の配列を返す"""
 
     def getdata(self) -> Typeget_data:
         """`data`のデータを取得する"""

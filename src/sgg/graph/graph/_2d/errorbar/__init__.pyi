@@ -8,20 +8,16 @@ __all__ = ["Errorbar"]
 class Errorbar(_2Gset):
     def update(
         self,
-        x: n_array,
-        y: n_array,
-        err: o_array,
-        xerr: o_array,
-        yerr: o_array,
+        x: TypeArraysLikeNumber,
+        y: TypeArraysLikeNumber,
+        err: TypeArrayLikeNumber,
+        xerr: TypeArrayLikeNumber,
+        yerr: TypeArrayLikeNumber,
         xuplims: bool,
         xlolims: bool,
         yuplims: bool,
         ylolims: bool,
         barsabove: bool,
-        linestyle: Literal[
-            "dashdot", "dashed", "dotted", "solid", "-", "--", "-.", ":"
-        ],
-        marker: Literal[".", "s", "o", "p", "v", "*", "^", "D"],
         linewidth: int | float,
         capthick: int | float,
         capsize: int | float,
@@ -32,11 +28,12 @@ class Errorbar(_2Gset):
         decimalpoint: int | float,
         graph_grid: ColorType,
         title: str,
+        label: str | list[str] | None,
     ) -> None:
         """エラーグラフを再表示させる"""
 
     def get(self) -> list[ErrorbarContainer]:
-        """`ErrorbarContainer`の配列を返す"""
+        """`matplotlib.container.ErrorbarContainer`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

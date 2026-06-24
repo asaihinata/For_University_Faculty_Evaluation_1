@@ -6,10 +6,9 @@ __all__ = ["Boxplot"]
 class Boxplot(_2Gset):
     def update(
         self,
-        data: n_array,
+        data: TypeArraysLikeNumber,
         width: int | float,
         whis: int | float,
-        label: labeltype,
         legend: bool,
         fill: bool,
         notch: bool,
@@ -22,6 +21,7 @@ class Boxplot(_2Gset):
         ylabel: str,
         graph_grid: ColorType,
         title: str,
+        label: str | list[str] | None,
     ) -> None:
         """箱ひげ図を再表示させる"""
 

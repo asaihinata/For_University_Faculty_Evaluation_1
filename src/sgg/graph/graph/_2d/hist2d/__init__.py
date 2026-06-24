@@ -56,9 +56,9 @@ class Hist2d(twoElement):
 
     def update(self, x=None, y=None, **kw):
         self._updates(**kw)
-        if isinstance(x, nListlike):
+        if change_array_like(x):
             self.__x = NPNumber(x, depth_limit=1)
-        if isinstance(y, nListlike):
+        if change_array_like(y):
             self.__y = NPNumber(y, depth_limit=1)
         self.max = nums(kw.get("max"), self.max)
         self.min = nums(kw.get("min"), self.min)
@@ -103,7 +103,7 @@ class Hist2d(twoElement):
 
     def _powsmax(self, val, range):
         if val == None:
-            maxs = range.max
+            maxs = range.max()
             if maxs < 0:
                 return np.pow(10, np.ceil(np.log10(np.abs(maxs))) - 1) * -1
             return np.pow(10, np.ceil(np.log10(maxs)))
@@ -111,7 +111,7 @@ class Hist2d(twoElement):
 
     def _powsmin(self, val, range):
         if val == None:
-            mins = range.min
+            mins = range.min()
             if mins < 0:
                 return np.pow(10, np.ceil(np.log10(np.abs(mins)))) * -1
             return np.pow(10, np.ceil(np.log10(mins)) - 1)

@@ -1,13 +1,13 @@
 from os import getcwd
 from re import findall
 from tkinter import Canvas, Frame, Scrollbar, Tk
+from types import FunctionType
 
 from PIL import ImageGrab
 
-from ..._dialog import asksaveasfilename
 from ...dev import bols, is_array_like, listchose, num0s, parsecolor, range_num
+from ...dialogs import asksaveasfilename
 from ...graph import *
-from ...typing import FunctionType
 from ..basic import *
 
 __all__ = ["WindowController"]
@@ -42,9 +42,9 @@ class WindowController:
         self.set_alpha(self.alpha)
         self.fullscreen(self.fullscreens)
         self.foreground(self.topmost)
-        resizable = bols(kw.get("resizable"),None)
+        resizable = bols(kw.get("resizable"), None)
         if resizable:
-            self.resizableswidth,self.resizablesheight=True,True
+            self.resizableswidth, self.resizablesheight = True, True
         else:
             self.resizableswidth = bols(kw.get("resizableswidth"), True)
             self.resizablesheight = bols(kw.get("resizablesheight"), True)

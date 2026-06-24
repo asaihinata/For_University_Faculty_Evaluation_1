@@ -7,7 +7,7 @@ __all__ = ["RadarFill"]
 class RadarFill(RadarElement):
     def update(
         self,
-        data: o_array,
+        data: TypeArrayLikeNumber,
         alpha: int | float,
         fg: ColorType,
         bg: ColorType,
@@ -20,4 +20,4 @@ class RadarFill(RadarElement):
         """`data`のデータを取得する"""
 
     def get(self) -> list[Line2D]:
-        """`Line2D`の配列を返す"""
+        """`matplotlib.lines.Line2D`の配列を返す"""

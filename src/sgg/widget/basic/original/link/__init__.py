@@ -1,10 +1,10 @@
-from os.path import abspath
 from pathlib import Path
 from tkinter import Label
 from webbrowser import open
 
-from ....font import fonts
+from .....font import TKFont
 from ...common import *
+from ...dev import linkcheck
 
 __all__ = ["Link"]
 
@@ -12,18 +12,18 @@ __all__ = ["Link"]
 class Link(Element):
     def __init__(self, master, kw):
         super().__init__(master, kw)
-        self.link_url = kw.get("link",None)
-        if not isinstance(self.link_url,str):
-            raise ValueError('linkにはstr型を指定してください')
+        self.link_url = kw.get("link")
+        if not isinstance(self.link_url, str | Path):
+            raise ValueError("linkにはstr型もしくはPathオブジェクトを指定してください")
         self.underline = kw.get("underline", True)
-        self.font = fonts(
+        self.font = TKFont(
             self.family,
             self.font_size,
             self.weight,
             self.slant,
             self.underline,
             self.overstrike,
-            master,
+            root=master,
         )
         self.fg = parsecolor(kw.get("fg"), "#0000ee")
         self.wraplength = num0(kw.get("wraplength"))
@@ -51,15 +51,11 @@ class Link(Element):
         self.widget.bind("<Button-1>", self._link)
 
     def _link(self, ev):
-        if self.link_url != None:
-            p = Path(self.link_url)
-            if p.exists() and p.is_file() and p.suffix.lower() in [".html", ".htm"]:
-                open(Path(f"file://{abspath(self.link_url)}").resolve())
-            else:
-                try:
-                    open(self.link_url)
-                except Exception as e:
-                    raise Exception(e)
+        if isinstance(self.link_url, Path):
+            if self.link_url.is_file() and self.link_url.suffix in [".html", ".htm"]:
+                open(str(Path(f"file://{self.link_url}").resolve()))
+        elif linkcheck(self.link_url):
+            open(self.link_url)
 
     def delta(self):
         self.widget.destroy()

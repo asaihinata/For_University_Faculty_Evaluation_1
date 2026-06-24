@@ -15,7 +15,7 @@ if __name__ == "__main__":
             Guis.Waterfall(
                 x=waterfallx,
                 y=waterfally,
-                title="ウォーターフォールの基本",
+                title="滝グラフの基本",
                 xlabel=xlabel,
                 ylabel=ylabel,
             ),
@@ -72,7 +72,5 @@ if __name__ == "__main__":
             Guis.Buttons(text="更新ボタン", function=updates),
         ],
     ]
-    win = Guis.window(
-        title="ウォーターフォール(test)", layout=layout, scroll=True, maxmine=True
-    )
+    win = Guis.window(title="滝グラフ(test)", layout=layout, scroll=True, maxmine=True)
     win.run()

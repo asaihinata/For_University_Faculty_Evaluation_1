@@ -1,9 +1,9 @@
 from tkinter import Misc
 
 from matplotlib.projections.polar import PolarAxes
-from numpy import int64, ndarray
+from numpy import ndarray
 
-from ....nparray.npNumber import NPNumber
+from ....nparray import NPNumber
 from ...style import getLabel
 from ...typing import *
 from ..graph import GElement
@@ -13,7 +13,6 @@ __all__ = ["RadarElement"]
 class RadarElement(GElement):
     label: getLabel
     ax: PolarAxes
-    data: ndarray
     theta: ndarray[float64, dtype[float64]]
     frametype: Literal["circle", "polygon"] = "circle"
     def __init__(self, master: Misc, kw: dict) -> None:
@@ -21,7 +20,7 @@ class RadarElement(GElement):
 
     def _updates(
         self,
-        data: o_array,
+        data: TypeArrayLikeNumber,
         fg: ColorType,
         bg: ColorType,
         graph_grid: ColorType,

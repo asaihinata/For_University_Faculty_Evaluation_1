@@ -6,22 +6,19 @@ from .._Polarset import _polarset
 __all__ = ["Errorpolar"]
 
 class Errorpolar(_polarset):
+    @overload
     def update(
         self,
-        x: o_array,
-        y: o_array,
-        err: o_array,
-        xerr: o_array,
-        yerr: o_array,
+        x: TypeArrayLikeNumber,
+        y: TypeArrayLikeNS,
+        err: TypeArraysLikeNumber,
+        xerr: TypeArraysLikeNumber,
+        yerr: TypeArraysLikeNumber,
         xuplims: bool,
         xlolims: bool,
         yuplims: bool,
         ylolims: bool,
         barsabove: bool,
-        linestyle: Literal[
-            "dashdot", "dashed", "dotted", "solid", "-", "--", "-.", ":"
-        ],
-        marker: Literal[".", "s", "o", "p", "v", "*", "^", "D"],
         linewidth: int | float,
         capthick: int | float,
         capsize: int | float,
@@ -37,19 +34,15 @@ class Errorpolar(_polarset):
     @overload
     def update(
         self,
-        data: o_array,
-        err: o_array,
-        xerr: o_array,
-        yerr: o_array,
+        data: TypeArrayLikeNS,
+        err: TypeArraysLikeNumber,
+        xerr: TypeArraysLikeNumber,
+        yerr: TypeArraysLikeNumber,
         xuplims: bool,
         xlolims: bool,
         yuplims: bool,
         ylolims: bool,
         barsabove: bool,
-        linestyle: Literal[
-            "dashdot", "dashed", "dotted", "solid", "-", "--", "-.", ":"
-        ],
-        marker: Literal[".", "s", "o", "p", "v", "*", "^", "D"],
         linewidth: int | float,
         capthick: int | float,
         capsize: int | float,
@@ -63,7 +56,7 @@ class Errorpolar(_polarset):
         """極軸エラーグラフを再表示させる"""
 
     def get(self) -> list[ErrorbarContainer]:
-        """`ErrorbarContainer`の配列を返す"""
+        """`matplotlib.container.ErrorbarContainer`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

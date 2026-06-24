@@ -1,3 +1,4 @@
 {
-    "autoDocstring.docstringFormat": "sphinx"
+    "autoDocstring.docstringFormat": "sphinx",
+    "python-envs.defaultEnvManager": "ms-python.python:system"
 }

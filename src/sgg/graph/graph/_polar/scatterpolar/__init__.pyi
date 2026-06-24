@@ -1,4 +1,5 @@
 from matplotlib.collections import PathCollection
+from numpy.typing import NDArray
 
 from ....typing import *
 from .._Polarset import _polarset
@@ -9,8 +10,8 @@ class Scatterpolar(_polarset):
     @overload
     def update(
         self,
-        x: o_array,
-        y: o_array,
+        x: TypeArrayLikeNumber,
+        y: TypeArrayLikeNS,
         marker: Type_Marker,
         markersize: int | float,
         linewidth: int | float,
@@ -25,7 +26,7 @@ class Scatterpolar(_polarset):
     @overload
     def update(
         self,
-        data: o_array,
+        data: TypeArrayLikeNS,
         marker: Type_Marker,
         markersize: int | float,
         linewidth: int | float,
@@ -38,7 +39,7 @@ class Scatterpolar(_polarset):
         """極軸散布図を再表示させる"""
 
     def get(self) -> list[PathCollection]:
-        """`PathCollection`の配列を返す"""
+        """`matplotlib.collections.PathCollection`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

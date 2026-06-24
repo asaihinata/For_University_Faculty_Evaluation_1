@@ -8,7 +8,7 @@ __all__ = ["Eventplot"]
 class Eventplot(_2Gset):
     def update(
         self,
-        data: o_array,
+        data: TypeArraysLikeNumber,
         linewidth: int | float,
         linelength: int | float,
         orientation: Literal["vertical", "horizontal"],
@@ -20,11 +20,12 @@ class Eventplot(_2Gset):
         alpha: int | float,
         graph_grid: ColorType,
         title: str,
+        label: str | list[str] | None,
     ) -> None:
         """イベントグラフを再表示させる"""
 
     def get(self) -> list[EventCollection]:
-        """`EventCollection`の配列を返す"""
+        """`matplotlib.collections.EventCollection`の配列を返す"""
 
     def getdata(self) -> Typeget_data:
         """`data`のデータを取得する"""

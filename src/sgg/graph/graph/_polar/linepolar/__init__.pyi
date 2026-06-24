@@ -9,8 +9,8 @@ class Linepolar(_polarset):
     @overload
     def update(
         self,
-        x: o_array,
-        y: o_array,
+        x: TypeArrayLikeNumber,
+        y: TypeArrayLikeNS,
         linestyle: Type_Solid,
         marker: Type_Marker,
         linewidth: int | float,
@@ -25,7 +25,7 @@ class Linepolar(_polarset):
     @overload
     def update(
         self,
-        data: o_array,
+        data: TypeArrayLikeNS,
         linestyle: Type_Solid,
         marker: Type_Marker,
         linewidth: int | float,
@@ -38,7 +38,7 @@ class Linepolar(_polarset):
         """極軸折線グラフを再表示させる"""
 
     def get(self) -> list[Line2D]:
-        """`Line2D`の配列を返す"""
+        """`matplotlib.lines.Line2D`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

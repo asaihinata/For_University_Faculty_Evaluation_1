@@ -8,23 +8,10 @@ __all__ = ["Waterfallh"]
 class Waterfallh(_2Gset):
     def update(
         self,
-        x: o_array,
-        y: o_array,
+        x: TypeArrayLikeNS,
+        y: TypeArrayLikeNumber,
         colorline: ColorType,
-        linestyle: Literal[
-            "solid",
-            "-",
-            "dashed",
-            "--",
-            "dash-dot",
-            "-.",
-            "dotted",
-            ":",
-            "none",
-            None,
-            " ",
-            "",
-        ],
+        linestyle: Literal["-", "--", "-.", ":", "None", " ", ""],
         ucolor: ColorType,
         dcolor: ColorType,
         height: int | float,
@@ -40,7 +27,7 @@ class Waterfallh(_2Gset):
         """横向きの滝グラフを再表示させる"""
 
     def get(self) -> list[BarContainer]:
-        """`BarContainer`の配列を返す"""
+        """`matplotlib.container.BarContainer`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

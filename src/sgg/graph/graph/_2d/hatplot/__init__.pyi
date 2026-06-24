@@ -8,8 +8,8 @@ __all__ = ["Hatplot"]
 class Hatplot(_2Gset):
     def update(
         self,
-        x: o_array,
-        data: o_array,
+        x: TypeArraysLikeNumber,
+        data: TypeArraysLikeNumber,
         color: ColorType,
         fg: ColorType,
         bg: ColorType,
@@ -22,7 +22,7 @@ class Hatplot(_2Gset):
         """ハットグラフを再表示させる"""
 
     def get(self) -> list[BarContainer]:
-        """`BarContainer`の配列を返す"""
+        """`matplotlib.container.BarContainer`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

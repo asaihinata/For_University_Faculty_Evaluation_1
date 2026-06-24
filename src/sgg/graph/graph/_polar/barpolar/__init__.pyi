@@ -9,8 +9,8 @@ class Barpolar(_polarset):
     @overload
     def update(
         self,
-        x: o_array,
-        y: o_array,
+        x: TypeArrayLikeNumber,
+        y: TypeArrayLikeNS,
         logs: bool,
         align: Literal["center", "edge"],
         width: int | float,
@@ -25,7 +25,7 @@ class Barpolar(_polarset):
     @overload
     def update(
         self,
-        data: o_array,
+        data: TypeArrayLikeNS,
         logs: bool,
         align: Literal["center", "edge"],
         width: int | float,
@@ -38,7 +38,7 @@ class Barpolar(_polarset):
         """極軸棒グラフを再表示させる"""
 
     def get(self) -> list[BarContainer]:
-        """`BarContainer`の配列を返す"""
+        """`matplotlib.container.BarContainer`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

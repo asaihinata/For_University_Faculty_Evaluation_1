@@ -8,8 +8,8 @@ __all__ = ["BarhGraph"]
 class BarhGraph(_2Gset):
     def update(
         self,
-        x: o_array,
-        y: n_array,
+        x: TypeArraysLikeNumber,
+        y: TypeArrayLikeNS,
         height: int | float,
         align: Literal["center", "edge"],
         logs: bool,
@@ -20,11 +20,12 @@ class BarhGraph(_2Gset):
         ylabel: str,
         graph_grid: ColorType,
         title: str,
+        label: str | list[str] | None,
     ) -> None:
-        """横軸棒グラフを再表示させる"""
+        """横向き棒グラフを再表示させる"""
 
     def get(self) -> list[BarContainer]:
-        """`BarContainer`の配列を返す"""
+        """`matplotlib.container.BarContainer`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

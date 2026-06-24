@@ -1,12 +1,14 @@
 from tkinter import Tk
+from typing import Any
 
 from ...graph import *
-from ...typing import Any
 from ..basic import *
 
 __all__ = ["WindowController"]
 
 class WindowController:
+    """ウィンドウを生成する"""
+
     __firstlineno__: int
     __module__: str
     __dict__: dict[str, Any]

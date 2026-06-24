@@ -23,8 +23,8 @@ class Hist(twoElement):
             self.bins = num1s(bins, round(self.__data.sturgesval))
         else:
             self.bins = round(self.__data.sturgesval)
-        self.min = nums(kw.get("min"), self.__data.min)
-        self.max = nums(kw.get("max"), self.__data.max)
+        self.min = nums(kw.get("min"), self.__data.min())
+        self.max = nums(kw.get("max"), self.__data.max())
         self.bottom = num0s(kw.get("bottom"))
         self.orientation = listchose(kw.get("orientation"), ["vertical", "horizontal"])
         self.width = range_num(num0s(kw.get("width"), 1), 0, 1, 1)
@@ -74,7 +74,7 @@ class Hist(twoElement):
 
     def update(self, data=None, **kw):
         self._updates(**kw)
-        if isinstance(data, nListlike):
+        if change_array_like(data):
             self.__data = NPNumber(data)
         bins = kw.get("bins")
         if isinstance(bins, list | range | tuple | np.ndarray) or bins in [
@@ -90,8 +90,8 @@ class Hist(twoElement):
             self.bins = bins
         elif isinstance(bins, int):
             self.bins = num1s(bins, round(self.__data.sturgesval))
-        self.min = nums(kw.get("min"), self.__data.min)
-        self.max = nums(kw.get("max"), self.__data.max)
+        self.min = nums(kw.get("min"), self.__data.min())
+        self.max = nums(kw.get("max"), self.__data.max())
         self.bottom = num0s(kw.get("bottom"), self.bottom)
         self.orientation = listchose(
             kw.get("orientation"), ["vertical", "horizontal"], self.orientation
@@ -105,6 +105,7 @@ class Hist(twoElement):
             bottom=self.bottom,
             orientation=self.orientation,
             width=self.width,
+            alpha=self.alpha,
         )
         self._redraw()
 

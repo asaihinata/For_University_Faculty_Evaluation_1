@@ -25,25 +25,25 @@ class threeElement(GElement):
         title: str,
         elev: int | float,
         azim: int | float,
-        xlabel: labeltype,
-        ylabel: labeltype,
-        zlabel: labeltype,
+        xlabel: str | list[str] | None,
+        ylabel: str | list[str] | None,
+        zlabel: str | list[str] | None,
     ) -> None: ...
     def _apply_labels(
         self,
-        xlabel: labeltype = None,
-        ylabel: labeltype = None,
-        zlabel: labeltype = None,
+        xlabel: str | list[str] | None = None,
+        ylabel: str | list[str] | None = None,
+        zlabel: str | list[str] | None = None,
     ) -> None:
         """
         3Dのグラフのx軸,y軸,z軸のラベルを作成する
 
         :param xlabel: x軸のラベルを指定する
-        :type label: labeltype
+        :type label: str | list[str] | None
         :param ylabel: y軸のラベルを指定する
-        :type ylabel: labeltype
+        :type ylabel: str | list[str] | None
         :param zlabel: z軸のラベルを指定する
-        :type zlabel: labeltype
+        :type zlabel: str | list[str] | None
         """
 
     def _apply_grid(self) -> None:
@@ -105,7 +105,7 @@ class threeElement(GElement):
         :param ticks: x軸の目盛りの位置を指定する
         :type ticks: ArrayLike
         :param labels: x軸の目盛りのラベルを指定する
-        :type labels: Iterable[str]|None
+        :type labels: Iterable[str] | None
         :param minor: x軸の主目盛りを設定するか補助目盛りのみ設定するか指定する(False)
         :type minor: bool
         """
@@ -120,7 +120,7 @@ class threeElement(GElement):
         :param ticks: x軸の目盛りの位置を指定する
         :type ticks: ArrayLike
         :param labels: x軸の目盛りのラベルを指定する
-        :type labels: Iterable[str]|None
+        :type labels: Iterable[str] | None
         :param minor: x軸の補助目盛りのみに適用する
         :type minor: bool
         """
@@ -135,7 +135,7 @@ class threeElement(GElement):
         :param ticks: x軸の目盛りの位置を指定する
         :type ticks: ArrayLike
         :param labels: x軸の目盛りのラベルを指定する
-        :type labels: Iterable[str]|None
+        :type labels: Iterable[str] | None
         :param minor: x軸の主目盛りのみに適用する
         :type minor: bool
         """
@@ -150,7 +150,7 @@ class threeElement(GElement):
         :param ticks: y軸の目盛りの位置を指定する
         :type ticks: ArrayLike
         :param labels: y軸の目盛りのラベルを指定する
-        :type labels: Iterable[str]|None
+        :type labels: Iterable[str] | None
         :param minor: y軸の主目盛りを設定するか補助目盛りのみ設定するか指定する(False)
         :type minor: bool
         """
@@ -165,7 +165,7 @@ class threeElement(GElement):
         :param ticks: y軸の目盛りの位置を指定する
         :type ticks: ArrayLike
         :param labels: y軸の目盛りのラベルを指定する
-        :type labels: Iterable[str]|None
+        :type labels: Iterable[str] | None
         :param minor: y軸の補助目盛りのみに適用する
         :type minor: bool
         """
@@ -180,7 +180,7 @@ class threeElement(GElement):
         :param ticks: y軸の目盛りの位置を指定する
         :type ticks: ArrayLike
         :param labels: y軸の目盛りのラベルを指定する
-        :type labels: Iterable[str]|None
+        :type labels: Iterable[str] | None
         :param minor: y軸の主目盛りのみに適用する
         :type minor: bool
         """
@@ -195,7 +195,7 @@ class threeElement(GElement):
         :param ticks: z軸の目盛りの位置を指定する
         :type ticks: ArrayLike
         :param labels: z軸の目盛りのラベルを指定する
-        :type labels: Iterable[str]|None
+        :type labels: Iterable[str] | None
         :param minor: z軸の主目盛りを設定するか補助目盛りのみ設定するか指定する(False)
         :type minor: bool
         """
@@ -210,7 +210,7 @@ class threeElement(GElement):
         :param ticks: z軸の目盛りの位置を指定する
         :type ticks: ArrayLike
         :param labels: z軸の目盛りのラベルを指定する
-        :type labels: Iterable[str]|None
+        :type labels: Iterable[str] | None
         :param minor: z軸の補助目盛りのみに適用する
         :type minor: bool
         """
@@ -225,7 +225,7 @@ class threeElement(GElement):
         :param ticks: z軸の目盛りの位置を指定する
         :type ticks: ArrayLike
         :param labels: z軸の目盛りのラベルを指定する
-        :type labels: Iterable[str]|None
+        :type labels: Iterable[str] | None
         :param minor: z軸の主目盛りのみに適用する
         :type minor: bool
         """

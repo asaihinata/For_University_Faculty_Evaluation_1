@@ -40,7 +40,7 @@ class Step(twoElement):
 
     def update(self, data=None, **kw):
         self._updates(**kw)
-        if isinstance(data, nListlike):
+        if change_array_like(data):
             self.__data = NPNumber(data)
         self.linewidth = num0(kw.get("linewidth"), self.linewidth)
         self.fill = bols(kw.get("fill"), self.fill)
@@ -54,6 +54,7 @@ class Step(twoElement):
             fill=self.fill,
             baseline=self.baseline,
             orientation=self.orientation,
+            alpha=self.alpha,
         )
         self._redraw()
 

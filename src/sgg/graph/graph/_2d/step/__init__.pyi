@@ -8,9 +8,14 @@ __all__ = ["Step"]
 class Step(_2Gset):
     def update(
         self,
-        data: n_array,
+        data: TypeArraysLikeNumber,
         linewidth: int | float,
-        range: int | float | ListNumbertype2 | TupleNumbertype2,
+        range: (
+            int
+            | float
+            | list[int | float, int | float]
+            | tuple[int | float, int | float]
+        ),
         fill: bool,
         baseline: int | float,
         orientation: Literal["horizontal", "vertical"],
@@ -19,11 +24,12 @@ class Step(_2Gset):
         alpha: int | float,
         graph_grid: ColorType,
         title: str,
+        label: str | list[str] | None,
     ) -> None:
         """階段グラフを再表示させる"""
 
     def get(self) -> list[StepPatch]:
-        """`StepPatch`の配列を返す"""
+        """`matplotlib.patches.StepPatch`の配列を返す"""
 
     def getdata(self) -> Typeget_data:
         """`data`のデータを取得する"""

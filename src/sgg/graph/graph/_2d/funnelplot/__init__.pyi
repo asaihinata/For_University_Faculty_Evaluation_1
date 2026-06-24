@@ -8,7 +8,7 @@ __all__ = ["Funne"]
 class Funne(_2Gset):
     def update(
         self,
-        x: o_array,
+        x: TypeArraysLikeNumber,
         height: int | float,
         fg: ColorType,
         bg: ColorType,
@@ -21,7 +21,7 @@ class Funne(_2Gset):
         """じょうごグラフを再表示させる"""
 
     def get(self) -> list[BarContainer]:
-        """`BarContainer`の配列を返す"""
+        """`matplotlib.container.BarContainer`の配列を返す"""
 
     def getx(self) -> Typeget_data:
         """`x`のデータを取得する"""

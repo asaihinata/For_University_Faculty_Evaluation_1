@@ -26,9 +26,6 @@ class Errorbar(twoElement):
         self.yuplims = bols(kw.get("yuplims"), False)
         self.ylolims = bols(kw.get("ylolims"), False)
         self.barsabove = bols(kw.get("barsabove"), False)
-        self.line = kw.get("linestyle")
-        self.marker = kw.get("marker", "o")
-        self.fmt = FMT(self.marker, self.line).txt
         self.linewidth = num0(kw.get("linewidth"), 1.5)
         self.capthick = nums(kw.get("capthick"), 10)
         self.capsize = nums(kw.get("capsize"), 0)
@@ -45,7 +42,6 @@ class Errorbar(twoElement):
             label=self.label,
             xerr=self.xerr,
             yerr=self.yerr,
-            fmt=self.fmt,
             linewidth=self.linewidth,
             capsize=self.capsize,
             barsabove=self.barsabove,
@@ -65,7 +61,6 @@ class Errorbar(twoElement):
         label,
         xerr,
         yerr,
-        fmt,
         linewidth,
         capsize,
         barsabove,
@@ -82,11 +77,11 @@ class Errorbar(twoElement):
             self.ax.errorbar(
                 xs,
                 ys,
-                fmt=fmt,
                 xerr=xerr,
                 yerr=yerr,
                 label=label[i],
                 elinewidth=linewidth,
+                fmt="none",
                 capthick=capthick,
                 capsize=capsize,
                 barsabove=barsabove,
@@ -105,24 +100,21 @@ class Errorbar(twoElement):
 
     def update(self, x=None, y=None, err=None, xerr=None, yerr=None, **kw):
         self._updates(**kw)
-        if isinstance(x, nListlike):
+        if change_array_like(x):
             self.__x = NPNumber(x)
-        if isinstance(y, nListlike):
+        if change_array_like(y):
             self.__y = NPNumber(y)
-        if isinstance(err, nListlike):
+        if change_array_like(err):
             self.yerr = self.xerr = self.err = NPNumber(err)
-        if isinstance(xerr, nListlike):
+        if change_array_like(xerr):
             self.xerr = NPNumber(xerr)
-        if isinstance(yerr, nListlike):
+        if change_array_like(yerr):
             self.yerr = NPNumber(yerr)
         self.xuplims = bols(kw.get("xuplims"), self.xuplims)
         self.xlolims = bols(kw.get("xlolims"), self.xlolims)
         self.yuplims = bols(kw.get("yuplims"), self.yuplims)
         self.ylolims = bols(kw.get("ylolims"), self.ylolims)
         self.barsabove = bols(kw.get("barsabove"), self.barsabove)
-        self.line = kw.get("linestyle", self.line)
-        self.marker = kw.get("marker", self.marker)
-        self.fmt = FMT(self.marker, self.line).txt
         self.linewidth = num0(kw.get("linewidth"), self.linewidth)
         self.capthick = nums(kw.get("capthick"), self.capthick)
         self.capsize = nums(kw.get("capsize"), self.capsize)
@@ -143,7 +135,6 @@ class Errorbar(twoElement):
             label=self.label,
             xerr=self.xerr,
             yerr=self.yerr,
-            fmt=self.fmt,
             linewidth=self.linewidth,
             capsize=self.capsize,
             barsabove=self.barsabove,
@@ -153,7 +144,7 @@ class Errorbar(twoElement):
             yuplims=self.yuplims,
             ylolims=self.ylolims,
             errorevery=self.errorevery,
-            alpha=self.alpha
+            alpha=self.alpha,
         )
         self._redraw()
 

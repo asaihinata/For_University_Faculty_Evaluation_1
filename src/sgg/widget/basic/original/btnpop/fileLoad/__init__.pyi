@@ -1,4 +1,4 @@
-from ..btn import *
+from ..btn import Btn
 
 __all__ = ["FileLoad"]
 
@@ -8,7 +8,7 @@ class FileLoad(Btn):
         選択したファイルのパスを取得する
 
         :return: 選択したファイルのパスを返す
-        :rtype: str|None
+        :rtype: str | None
         """
 
     @property
@@ -17,7 +17,7 @@ class FileLoad(Btn):
         選択したファイルのパスを取得する
 
         :return: 選択したファイルのパスを返す
-        :rtype: str|None
+        :rtype: str | None
         """
 
     def get_path(self) -> str | None:
